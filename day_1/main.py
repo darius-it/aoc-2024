@@ -1,13 +1,4 @@
-def aoc1_p1():
-    left = []
-    right = []
-
-    with open("input.txt") as file:
-        for line in file.readlines():
-            sides = line.split()
-            left.append(sides[0])
-            right.append(sides[1])
-
+def aoc1_p1(left: list[str], right: list[str]):
     left.sort()
     right.sort()
 
@@ -17,16 +8,8 @@ def aoc1_p1():
 
     print(f"Result of Part 1: {total_sum}")
 
-def aoc1_p2():
-    left = []
-    right = []
+def aoc1_p2(left: list[str], right: list[str]):
     right_occurences = {}
-
-    with open("input.txt") as file:
-        for line in file.readlines():
-            sides = line.split()
-            left.append(sides[0])
-            right.append(sides[1])
 
     for entry in right:
         if entry in right_occurences.keys():
@@ -43,5 +26,14 @@ def aoc1_p2():
     print(f"Similarity score: {sim_score}")
 
 if __name__ == "__main__":
-    aoc1_p1() # part 1
-    aoc1_p2() # part 2
+    left_side_lines = []
+    right_side_lines = []
+
+    with open("input.txt") as file:
+        for line in file.readlines():
+            sides = line.split()
+            left_side_lines.append(sides[0])
+            right_side_lines.append(sides[1])
+
+    aoc1_p1(left_side_lines, right_side_lines) # part 1
+    aoc1_p2(left_side_lines, right_side_lines) # part 2
