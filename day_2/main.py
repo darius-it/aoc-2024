@@ -11,14 +11,6 @@ def is_safe(row: list[int]) -> bool:
             
     return True
 
-def aoc2_p1(entries: list[list[int]]):
-    safe_entries = 0
-    
-    for entry in entries:
-        if is_safe_2(entry): safe_entries += 1
-
-    print(f"Safe entries {safe_entries}")
-
 def is_safe_2(row: list[int]):
     if is_safe(row): return True
 
@@ -31,13 +23,21 @@ def is_safe_2(row: list[int]):
         
     return False
 
+def aoc2_p1(entries: list[list[int]]):
+    safe_entries = 0
+    
+    for entry in entries:
+        if is_safe_2(entry): safe_entries += 1
+
+    print(f"Safe entries {safe_entries}")
+
 def aoc2_p2(entries: list[list[int]]):
     safe_entries = 0
 
     for entry in entries:
         if is_safe_2(entry): safe_entries += 1
 
-    print(safe_entries)
+    print(f"Safe entries with damper: {safe_entries}")
 
 
 if __name__ == "__main__":
@@ -47,5 +47,5 @@ if __name__ == "__main__":
         for line in file.readlines():
             entries.append([int(num) for num in line.split()])  
 
-    #aoc2_p1(entries)
+    aoc2_p1(entries)
     aoc2_p2(entries)
